@@ -12,7 +12,7 @@ CREATE TABLE snack (
     id SERIAL PRIMARY KEY,   
     name TEXT NOT NULL,   
     description TEXT,   
-    price NUMERIC(8, 2) NOT NULL,   
+    price NUMERIC(2, 2) NOT NULL,   
     calories INTEGER NOT NULL,   
     is_vegan BOOLEAN DEFAULT false,   
     created_date DATE DEFAULT current_date,   
