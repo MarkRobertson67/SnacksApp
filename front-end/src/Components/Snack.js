@@ -1,39 +1,26 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
 
-const API = process.env.REACT_APP_API_URL;
+import { Link } from "react-router-dom";
 
-function Snacks() {
-    const [snacks, setSnacks] = useState([]);
-
-    useEffect(() => {
-        axios
-        .get(`${API}/snacks`)
-        .then((response) => setSnacks(response.data))
-        .catch((error) => console.warn("catch", error))
-      }, []);
-
-      return (
-        <div className="Snacks">
-          <section>
-            <table>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Take me there</th>
-                  <th>See this snack</th>
-                </tr>
-              </thead>
-              <tbody>
-                {snacks.map((snack) => {
-                  return <Snack key={snack.id} snack={snack} />;
-                })}
-              </tbody>
-            </table>
-          </section>
-        </div>
-      );
-
+function Snack({ snack }) {
+  return (
+    <tr>
+      <td>
+        {snack.is_favorite ? (
+          <span>⭐️</span>
+        ) : (
+          <span>&nbsp; &nbsp; &nbsp;</span>
+        )}
+      </td>
+      <td>
+        <a href={snack.url} target="_blank" rel="noreferrer">
+          {snack.name}
+        </a>
+      </td>
+      <td>
+        <Link to={`/snacks/${snack.id}`}>✏️</Link>
+      </td>
+    </tr>
+  );
 }
 
-export default Snacks;
+export default Snack;
