@@ -8,7 +8,7 @@ CREATE DATABASE snacks;
 \c snacks;
 
 -- Create a table for our songs
-CREATE TABLE snack (   
+CREATE TABLE snacks (   
     id SERIAL PRIMARY KEY,   
     name TEXT NOT NULL,   
     description TEXT,   
