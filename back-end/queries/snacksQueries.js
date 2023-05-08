@@ -3,8 +3,8 @@ const db = require("../db/dbConfig");
 // Index query
 const getAllSnacks = async () => {
     try {
-        const allSnacks = await db.any("SELECT id, name, description, price, calories, is_vegan, created_date, current_date, updated_date");
-        return allSongs;
+        const allSnacks = await db.any("SELECT * FROM snacks");
+        return allSnacks;
       } catch (error) {
         return error;
       }
@@ -18,3 +18,5 @@ const getAllSnacks = async () => {
 // Delete query
 
 // Update query
+
+module.exports = { getAllSnacks };

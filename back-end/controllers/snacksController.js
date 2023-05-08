@@ -1,9 +1,12 @@
 const express = require("express");
-const songs = express.Router();
+const snacks = express.Router();
+
+const { getAllSnacks } = require("../queries/snacksQueries");
+
 
 
 // INDEX route
-snack.get("/", async (req, res) => {
+snacks.get("/", async (req, res) => {
     const allSnacks = await getAllSnacks();
 
     if (allSnacks) {
@@ -14,4 +17,4 @@ snack.get("/", async (req, res) => {
 });
 
 
-module.exports = snacks
+module.exports = snacks;

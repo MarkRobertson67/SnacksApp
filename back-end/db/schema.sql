@@ -8,13 +8,15 @@ CREATE DATABASE snacks;
 \c snacks;
 
 -- Create a table for our songs
+
 CREATE TABLE snack (   
     id SERIAL PRIMARY KEY,   
     name TEXT NOT NULL,   
-    description TEXT,   
-    price NUMERIC(8, 2) NOT NULL,   
+    category TEXT NOT NULL,  
+    rating NUMERIC
+    CHECK (rating >= 0 AND rating <= 5),  
     calories INTEGER NOT NULL,   
-    is_vegan BOOLEAN DEFAULT false,   
-    created_date DATE DEFAULT current_date,   
-    updated_date DATE
+    is_vegan BOOLEAN DEFAULT false,
+    is_halal BOOLEAN DEFAULT false, 
+    is_favorite BOOLEAN 
 );
