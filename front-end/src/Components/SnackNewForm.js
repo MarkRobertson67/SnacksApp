@@ -1,12 +1,24 @@
+
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-function SnackEditForm() {
-  let { id } = useParams();
+function SnackNewForm() {
   let navigate = useNavigate();
+
+  const addSnack = (newSnack) => {
+    axios
+      .post(`${API}/snacks`, newSnack)
+      .then(
+        () => {
+          navigate(`/snacks`);
+        },
+        (error) => console.error(error)
+      )
+      .catch((c) => console.warn("catch", c));
+  };
 
   const [snack, setSnack] = useState({
     name: "",
@@ -15,20 +27,7 @@ function SnackEditForm() {
     is_halal: false,
     is_favorite: false,
     created_date: null,
-
   });
-
-  const updateSnack = (updatedSnack) => {
-    axios
-      .put(`${API}/snacks/${id}`, updatedSnack)
-      .then(
-        () => {
-          navigate(`/snacks/${id}`);
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
-  };
 
   const handleTextChange = (event) => {
     setSnack({ ...snack, [event.target.id]: event.target.value });
@@ -38,19 +37,12 @@ function SnackEditForm() {
     setSnack({ ...snack, is_favorite: !snack.is_favorite });
   };
 
-  useEffect(() => {
-    axios.get(`${API}/snacks/${id}`).then(
-      (response) => setSnack(response.data),
-      (error) => navigate(`/not-found`)
-    );
-  }, [id, navigate]);
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateSnack(snack, id);
+    addSnack(snack);
   };
   return (
-    <div className="Edit">
+    <div className="New">
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input
@@ -89,14 +81,10 @@ function SnackEditForm() {
         />
 
         <br />
-
         <input type="submit" />
       </form>
-      <Link to={`/snacks/${id}`}>
-        <button>Nevermind!</button>
-      </Link>
     </div>
   );
 }
 
-export default SnackEditForm;
+export default SnackNewForm;
