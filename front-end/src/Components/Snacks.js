@@ -14,7 +14,6 @@ function Snacks() {
     .catch((error) => console.warn("catch", error))
   }, []);
 
-
   return (
     <div className="Snacks">
       <section>
