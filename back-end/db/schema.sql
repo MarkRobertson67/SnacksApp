@@ -21,3 +21,11 @@ CREATE TABLE snack (
     is_favorite BOOLEAN 
 
 );
+
+CREATE TABLE review (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    reviewer TEXT NOT NULL,
+    content TEXT NOT NULL,
+    snack_id INTEGER REFERENCES snack(id)
+);
