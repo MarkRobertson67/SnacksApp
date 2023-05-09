@@ -56,7 +56,7 @@ const updateASnack = async (id, snack) => {
     snack;
   try {
     const updatedSnack = await db.one(
-      "UPDATE snack SET name = $1, category = $2, ratings = $3, calories = $4, is_vegan = $5, is_halal = $6, is_favorite = $7 WHERE id = $8 RETURNING *",
+      "UPDATE snack SET name = $1, category = $2, rating = $3, calories = $4, is_vegan = $5, is_halal = $6, is_favorite = $7 WHERE id = $8 RETURNING *",
       [name, category, rating, calories, is_vegan, is_halal, is_favorite, id]
     );
     return updatedSnack;
