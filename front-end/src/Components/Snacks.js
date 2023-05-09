@@ -21,7 +21,7 @@ function Snacks() {
         justifyContent: "center",
         alignItems: "center",
         minHeight: "100vh",
-        marginTop: "-200px",
+        marginTop: "-100px",
       }}
     >
       <div className="container mt-4">
