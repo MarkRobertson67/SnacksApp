@@ -4,7 +4,6 @@ const snacks = express.Router();
 const { getAllSnacks } = require("../queries/snacksQueries");
 
 
-
 // INDEX route
 snacks.get("/", async (req, res) => {
     const allSnacks = await getAllSnacks();
