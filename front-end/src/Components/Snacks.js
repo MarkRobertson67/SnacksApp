@@ -15,6 +15,7 @@ function Snacks() {
   }, []);
 
   return (
+    <div style={{ position: 'relative', top: '-200px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
     <div className="Snacks">
       <section>
         <table>
@@ -32,6 +33,7 @@ function Snacks() {
           </tbody>
         </table>
       </section>
+    </div>
     </div>
   );
 }
