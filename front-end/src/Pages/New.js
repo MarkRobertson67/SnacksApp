@@ -1,4 +1,4 @@
-import SnacksNewForm from "../Components/SnacksNewForm";
+import SnacksNewForm from "../Components/SnackNewForm";
 
 function New() {
   return (
