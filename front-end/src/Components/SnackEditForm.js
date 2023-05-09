@@ -71,6 +71,7 @@ function SnackEditForm() {
           placeholder="super spicy, little spicy, ..."
           onChange={handleTextChange}
         />
+        
         <label htmlFor="rating">Rating:</label>
         <input
           id="rating"
@@ -80,6 +81,7 @@ function SnackEditForm() {
           // placeholder="Zero to 5"
           onChange={handleTextChange}
         />
+
         <label htmlFor="calories">Calories:</label>
         <input
           id="calories"
