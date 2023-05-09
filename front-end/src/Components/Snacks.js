@@ -15,11 +15,18 @@ function Snacks() {
   }, []);
 
   return (
-    <div style={{ position: 'relative', top: '-200px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-    <div className="Snacks">
-      <section>
-        <table>
-          <thead>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        marginTop: "-200px",
+      }}
+    >
+      <div className="container mt-4">
+        <table className="table table-bordered">
+          <thead className="table-dark">
             <tr>
               <th></th>
               <th>Take me there</th>
@@ -32,8 +39,7 @@ function Snacks() {
             })}
           </tbody>
         </table>
-      </section>
-    </div>
+      </div>
     </div>
   );
 }
