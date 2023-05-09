@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import PigAlot from "../assets/PigAlot.png";
 import "./NavBar.css";

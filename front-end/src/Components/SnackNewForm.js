@@ -6,7 +6,19 @@ import { Link, useNavigate } from "react-router-dom";
 const API = process.env.REACT_APP_API_URL;
 
 function SnackNewForm() {
+  
   let navigate = useNavigate();
+
+  const [snack, setSnack] = useState({
+    name: "",
+    description: "",
+    is_vegan: "",
+    is_halal: false,
+    is_favorite: false,
+    created_date: null,
+  });
+
+  
 
   const addSnack = (newSnack) => {
     axios
@@ -20,14 +32,6 @@ function SnackNewForm() {
       .catch((c) => console.warn("catch", c));
   };
 
-  const [snack, setSnack] = useState({
-    name: "",
-    description: "",
-    is_vegan: "",
-    is_halal: false,
-    is_favorite: false,
-    created_date: null,
-  });
 
   const handleTextChange = (event) => {
     setSnack({ ...snack, [event.target.id]: event.target.value });

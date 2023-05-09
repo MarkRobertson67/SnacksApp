@@ -1,4 +1,3 @@
-
 // DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -13,7 +12,6 @@ import About from "./Pages/About";
 
 // COMPONENTS
 import NavBar from "./Components/NavBar";
-
 
 function App() {
   return (
@@ -37,23 +35,6 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import logo from './logo.svg';
 // import './App.css';
