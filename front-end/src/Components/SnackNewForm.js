@@ -1,7 +1,7 @@
 
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -57,16 +57,7 @@ function SnackNewForm() {
           placeholder="Name of Website"
           required
         />
-        <label htmlFor="url">URL:</label>
-        <input
-          id="url"
-          type="text"
-          pattern="http[s]*://.+"
-          required
-          value={snack.url}
-          placeholder="http://"
-          onChange={handleTextChange}
-        />
+        
         <label htmlFor="category">Category:</label>
         <input
           id="category"
@@ -76,6 +67,42 @@ function SnackNewForm() {
           placeholder="super spicy, little spicy, ..."
           onChange={handleTextChange}
         />
+        
+        <label htmlFor="rating">Rating:</label>
+        <input
+          id="rating"
+          type="text"
+          name="rating"
+          value={snack.rating}
+          // placeholder="Zero to 5"
+          onChange={handleTextChange}
+        />
+
+        <label htmlFor="calories">Calories:</label>
+        <input
+          id="calories"
+          type="text"
+          name="calories"
+          value={snack.calories}
+          onChange={handleTextChange}
+        />
+
+        <label htmlFor="is_vegan">Is vegan:</label>
+        <input
+          id="is_vegan"
+          type="checkbox"
+          onChange={handleCheckboxChange}
+          checked={snack.is_vegan}
+        />
+
+        <label htmlFor="is_halal">Is Halal:</label>
+        <input
+          id="is_halal"
+          type="checkbox"
+          onChange={handleCheckboxChange}
+          checked={snack.is_halal}
+        />
+
         <label htmlFor="is_favorite">Favorite:</label>
         <input
           id="is_favorite"
@@ -86,6 +113,9 @@ function SnackNewForm() {
 
         <br />
         <input type="submit" />
+        <Link to={`/snacks`}>
+        <button>Nevermind!</button>
+      </Link>
       </form>
     </div>
   );
