@@ -12,6 +12,10 @@ export default function NavBar() {
       <button>
         <Link to="/snacks/new">New Snack</Link>
       </button>
+      <button>
+        <Link to="/about">About</Link>
+      </button>
+
     </nav>
   );
 }
