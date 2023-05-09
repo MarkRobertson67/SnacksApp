@@ -1,6 +1,7 @@
 const express = require("express");
 const snacks = express.Router();
 
+
 const {
   getAllSnacks,
   getASnack,
@@ -8,6 +9,7 @@ const {
   deleteASnack,
   updateASnack,
 } = require("../queries/snacksQueries");
+
 
 // INDEX route
 snacks.get("/", async (req, res) => {
