@@ -1,4 +1,3 @@
-
 // DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -12,7 +11,6 @@ import Show from "./Pages/Show";
 
 // COMPONENTS
 import NavBar from "./Components/NavBar";
-
 
 function App() {
   return (
@@ -35,23 +33,6 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import logo from './logo.svg';
 // import './App.css';

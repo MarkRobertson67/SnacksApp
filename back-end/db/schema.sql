@@ -19,4 +19,5 @@ CREATE TABLE snack (
     is_vegan BOOLEAN DEFAULT false,
     is_halal BOOLEAN DEFAULT false, 
     is_favorite BOOLEAN 
+
 );

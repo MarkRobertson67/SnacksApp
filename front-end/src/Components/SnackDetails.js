@@ -19,7 +19,7 @@ function SnackDetails() {
       }).catch((e) => {
         console.warn("catch", e)
       })
-  }, [id, API])
+  }, [id])
 
 
   //delete 
