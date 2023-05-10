@@ -1,5 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Baloo+2&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Sofia&effect=fire');
+
+
 
 .navbar {
   height: 125px;
@@ -22,14 +26,15 @@
   }
   
   .navbar-title {
-    font-size: 24px;
-    font-family: 'Fredoka One', cursive;
+    font-size: 44px;
+    font-family: 'Sofia', cursive;
+    font-weight: bold;
     margin: 0;
   }
   
   .bold {
     font-weight: bold;
-    color: red;
+    color: rgb(181, 23, 23);
   }
 
   .nav-button {

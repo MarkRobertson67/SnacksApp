@@ -54,7 +54,7 @@ function SnackNewForm() {
           value={snack.name}
           type="text"
           onChange={handleTextChange}
-          placeholder="Name of Website"
+          placeholder="Name of Snack"
           required
         />
         
