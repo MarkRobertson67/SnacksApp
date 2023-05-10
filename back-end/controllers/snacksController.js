@@ -42,7 +42,7 @@ console.log("show route sucessfully reached")
 
 // CREATE route
 snacks.post("/", async (req, res) => {
-  const newSnack = await addASnack(req.body);
+  const newSnack = req.body;
   try {
     const addedSnack = await addASnack(newSnack);
     res.status(200).json(addedSnack);

@@ -11,11 +11,12 @@ function SnackNewForm() {
 
   const [snack, setSnack] = useState({
     name: "",
-    description: "",
-    is_vegan: "",
+    category: "",
+    rating: "",
+    calories: "",
+    is_vegan: false,
     is_halal: false,
     is_favorite: false,
-    created_date: null,
   });
 
   
@@ -72,17 +73,17 @@ function SnackNewForm() {
         <label htmlFor="rating">Rating:</label>
         <input
           id="rating"
-          type="text"
+          type="number"
           name="rating"
           value={snack.rating}
-          // placeholder="Zero to 5"
+          placeholder="Zero to 5"
           onChange={handleTextChange}
         />
 
         <label htmlFor="calories">Calories:</label>
         <input
           id="calories"
-          type="text"
+          type="number"
           name="calories"
           value={snack.calories}
           onChange={handleTextChange}
