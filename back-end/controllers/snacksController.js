@@ -10,6 +10,10 @@ const {
   updateASnack,
 } = require("../queries/snacksQueries");
 
+const reviewsController = require("./reviewsController");
+
+snacks.use("/:snack_id/reviews", reviewsController);
+
 
 // INDEX route
 snacks.get("/", async (req, res) => {
