@@ -7,7 +7,21 @@ const {
   deleteReview,
   updateAReview,
   addAReview,
+  // getIndexReviews,
 } = require("../queries/reviewQueries");
+
+//index INDEX route
+// reviews.get("/", async (req, res) => {
+//   // const { snack_id } = req.params;
+//   try {
+//     const allReviews = await getIndexReviews();
+//     res.json(allReviews)
+//   } catch (err) {
+//     res.json(err)
+//   }
+// });
+
+
 
 //index route
 reviews.get("/", async (req, res) => {

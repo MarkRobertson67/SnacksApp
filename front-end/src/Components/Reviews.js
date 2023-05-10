@@ -7,7 +7,7 @@ import ReviewForm from "./ReviewForm";
 const API = process.env.REACT_APP_API_URL;
 
 function Reviews() {
-  const [reviews, setReviews] = useState({});
+  const [reviews, setReviews] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -54,6 +54,7 @@ function Reviews() {
       .put(`${API}/snacks/${id}/reviews/${updatedReview.id}`, updatedReview)
       .then((response) => {
         const copyReviewArray = [...reviews];
+        // console.log(reviews)
         const indexUpdatedReview = copyReviewArray.findIndex((review) => {
           return review.id === updatedReview.id;
         });
@@ -64,26 +65,26 @@ function Reviews() {
       })
       .catch((c) => console.warn("catch", c));
   };
-
+console.log(reviews)
   return ( 
   
-    <>No work</>
+    // <>No work</>
 
-    // <section className="Reviews">
-    //   <h2>Reviews</h2>
+    <section className="Reviews">
+      <h2>Reviews</h2>
 
-    //   <ReviewForm handleSubmit={handleAdd}>
-    //     <h3>Add a New Review</h3>
-    //   </ReviewForm>
-    //   {reviews.map((review) => (
-    //     <Review
-    //       key={review.id}
-    //       review={review}
-    //       handleDelete={handleDelete}
-    //       handleEdit={handleEdit}
-    //     />
-    //   ))}
-    // </section>
+      <ReviewForm handleSubmit={handleAdd}>
+        <h3>Add a New Review</h3>
+      </ReviewForm>
+      {reviews.map((review) => (
+        <Review
+          key={review.id}
+          review={review}
+          handleDelete={handleDelete}
+          handleEdit={handleEdit}
+        />
+      ))}
+    </section>
   );
 }
 export default Reviews;
