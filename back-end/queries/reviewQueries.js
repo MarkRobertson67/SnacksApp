@@ -1,6 +1,18 @@
 const db = require("../db/dbConfig");
 
 // Index query
+// const getIndexReviews = async () => {
+//   try {
+//     const allReviews = await db.any("SELECT * FROM reviews");
+//     return allReviews;
+//   } catch (error) {
+//     return error;
+//   }
+// };
+
+
+
+// Index query
 const getAllReviews = async (snack_id) => {
   try {
     const allReviews = await db.any("SELECT * FROM review WHERE snack_id=$1", snack_id);
@@ -71,4 +83,5 @@ module.exports = {
   addAReview,
   deleteReview,
   updateAReview,
+  // getIndexReviews,
 };
