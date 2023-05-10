@@ -22,7 +22,7 @@ setReview({...review, [event.target.id]: event.target.value})
     if (reviewDetails) {
       setReview(reviewDetails)
     }
-  }, [id, reviewDetails, props])
+  }, [id, reviewDetails ])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,7 +36,7 @@ setReview({...review, [event.target.id]: event.target.value})
       title: "",
       content: "",
       rating: "",
-      bookmark_id: id,
+      snack_id: id,
     })
   }
 
