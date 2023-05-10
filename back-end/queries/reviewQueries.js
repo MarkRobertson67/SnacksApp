@@ -3,7 +3,7 @@ const db = require("../db/dbConfig");
 // Index query
 const getAllReviews = async (snack_id) => {
   try {
-    const allReviews = await db.any("SELECT * FROM review", snack_id);
+    const allReviews = await db.any("SELECT * FROM review WHERE snack_id=$1", snack_id);
     return allReviews;
   } catch (error) {
     return error;

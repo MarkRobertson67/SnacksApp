@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Reviews from './Reviews';
+
  const API = process.env.REACT_APP_API_URL
 
 
@@ -69,7 +70,7 @@ function SnackDetails() {
         </div>
         
     </div>
-    <Reviews />
+    <Reviews snack={snack} />
   </article>
   )
 }

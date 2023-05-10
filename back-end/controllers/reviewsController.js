@@ -1,7 +1,6 @@
 const express = require("express");
+const reviews = express.Router({ mergeParams: true});
 
-
-const reviews = express.Router();
 const {
   getAllReviews,
   getAReview,
@@ -12,9 +11,9 @@ const {
 
 //index route
 reviews.get("/", async (req, res) => {
-  // const { snackId } = req.params;
+  const { snack_id } = req.params;
   try {
-    const allReviews = await getAllReviews();
+    const allReviews = await getAllReviews(snack_id);
     res.json(allReviews)
   } catch (err) {
     res.json(err)
@@ -53,7 +52,7 @@ reviews.post("/", async (req, res) => {
   } else {
     res.status(404).json({ error: "Review not found" });
   }
-  
+
 });
 
 // DELETE ROUTE
