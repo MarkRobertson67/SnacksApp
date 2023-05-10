@@ -26,7 +26,7 @@ setReview({...review, [event.target.id]: event.target.value})
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleEdit(review, id);
+    props.handleAdd(review, id);
     
     if (reviewDetails) {
       props.toggleView()
@@ -42,7 +42,7 @@ setReview({...review, [event.target.id]: event.target.value})
 
   return (
     <div className="Edit">
-      {props.children}
+      {/* {props.children} */}
       <form onSubmit={handleSubmit}>
         <label htmlFor="reviewer">Name:</label>
         <input

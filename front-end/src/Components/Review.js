@@ -21,7 +21,7 @@ function Review({ review, handleDelete, handleSubmit, handleEdit }) {
           <ReviewForm
             reviewDetails={review}
             toggleView={toggleView}
-            handleEdit={handleEdit}
+            // handleEdit={handleEdit}
           />
         ) : (
           <div>

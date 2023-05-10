@@ -10,12 +10,12 @@ function SnackEditForm() {
 
   const [snack, setSnack] = useState({
     name: "",
-    description: "",
-    is_vegan: "",
+    category: "",
+    rating: "",
+    calories: "",
+    is_vegan: false,
     is_halal: false,
     is_favorite: false,
-    created_date: null,
-
   });
 
   const updateSnack = (updatedSnack) => {
@@ -34,8 +34,9 @@ function SnackEditForm() {
     setSnack({ ...snack, [event.target.id]: event.target.value });
   };
 
-  const handleCheckboxChange = () => {
-    setSnack({ ...snack, is_favorite: !snack.is_favorite });
+  const handleCheckboxChange = (event) => {
+    console.log(event.target.id)
+    setSnack({ ...snack, [event.target.id]: !snack[event.target.id] });
   };
 
   useEffect(() => {
@@ -75,7 +76,7 @@ function SnackEditForm() {
         <label htmlFor="rating">Rating:</label>
         <input
           id="rating"
-          type="text"
+          type="number"
           name="rating"
           value={snack.rating}
           // placeholder="Zero to 5"
@@ -85,7 +86,7 @@ function SnackEditForm() {
         <label htmlFor="calories">Calories:</label>
         <input
           id="calories"
-          type="text"
+          type="number"
           name="calories"
           value={snack.calories}
           onChange={handleTextChange}
