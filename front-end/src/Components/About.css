@@ -1,75 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-html {
-  margin: 0;
-  padding: 0;
-}
 
 body {
   font-family: 'Roboto', sans-serif;
-  margin: 175px 0 0; 
+  margin: 170px 0 0; 
   padding: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: lightgrey;
 }
 
-.about {
-  margin: 0;
-  padding: 50px;
+.about-wrapper {
+  margin-top: 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  padding: 0 20px;
 }
+
+
+.about {
   
+  text-align: justify;
+  margin-bottom: 50px;
+}
+
 .about h1 {
   font-size: 36px;
+  margin-bottom: 20px;
 }
-  
+
 .about p {
   font-size: 20px;
   line-height: 1.5;
-  /* margin-bottom: 10px; */
+  margin-bottom: 20px;
 }
 
-.about-container h1 {
-  font-size: 36px;
+.team {
   text-align: center;
+}
+
+.team h1 {
+  font-size: 36px;
   margin-bottom: 20px;
 }
 
 .team-members {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
 }
 
 .member-card {
-  width: 40%;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 90px;
+  flex: 0 0 40%;
+  margin: 55px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
-.member-card p {
-  text-align: justify;
-  font-size: 16px;
-  line-height: 1.5;
+.member-card h3 {
+  font-size: 24px;
   margin-bottom: 10px;
 }
 
-.member-card a {
+.member-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.links-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.links-container a {
   display: inline-block;
-  background-color: #007bff;
+  /* background-color: #007bff; */
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
-  margin-top: 10px;
 }
 
-.member-card a:hover {
-  background-color: #0062cc;
+.links-container a:hover {
+  background-color: #007bff;
 }
 
-.app-screenshots {
+.member-card {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),
+              0 12px 36px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.about-wrapper .trello-board:hover h1,
+.about-wrapper .wireframe:hover h1 {
+  color: red;
+  text-decoration: underline;
+}
+
+
+
+/* .app-screenshots {
   z-index: 999;
   filter: brightness(1);
   display: grid;
@@ -77,4 +114,4 @@ body {
   grid-gap: 20px;
   margin-top: 50px;
   padding: 20px 80px;
-}
+} */

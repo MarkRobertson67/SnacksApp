@@ -7,7 +7,7 @@ import ReviewForm from "./ReviewForm";
 const API = process.env.REACT_APP_API_URL;
 
 function Reviews() {
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
@@ -32,22 +32,19 @@ function Reviews() {
       .catch((e) => console.warn("catch", e));
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = (reviewid) => {
     axios
-      .delete(`${API}/snacks/${id}/reviews/${id}`)
+      .delete(`${API}/snacks/${id}/reviews/${reviewid}`)
       .then(
         (response) => {
           const copyReviewArray = [...reviews];
           const indexDeletedReview = copyReviewArray.findIndex((review) => {
-            return review.id === id;
+            return review.id === reviewid;
           });
-          // use the index, and match it with the copy of the state's
-          // array of objects
-          // cut off the matching state with the id
           copyReviewArray.splice(indexDeletedReview, 1);
           setReviews(copyReviewArray);
         },
-        (error) => console.error(error)
+        // (error) => console.error(error)
       )
       .catch((c) => console.warn("catch", c));
   };
@@ -68,22 +65,25 @@ function Reviews() {
       .catch((c) => console.warn("catch", c));
   };
 
-  return (
-    <section className="Reviews">
-      <h2>Reviews</h2>
+  return ( 
+  <>
+  <h4>no work yet</h4>
+  </>
+    // <section className="Reviews">
+    //   <h2>Reviews</h2>
 
-      <ReviewForm handleSubmit={handleAdd}>
-        <h3>Add a New Review</h3>
-      </ReviewForm>
-      {reviews.map((review) => (
-        <Review
-          key={review.id}
-          review={review}
-          handleDelete={handleDelete}
-          handleEdit={handleEdit}
-        />
-      ))}
-    </section>
+    //   <ReviewForm handleSubmit={handleAdd}>
+    //     <h3>Add a New Review</h3>
+    //   </ReviewForm>
+    //   {reviews.map((review) => (
+    //     <Review
+    //       key={review.id}
+    //       review={review}
+    //       handleDelete={handleDelete}
+    //       handleEdit={handleEdit}
+    //     />
+    //   ))}
+    // </section>
   );
 }
 export default Reviews;

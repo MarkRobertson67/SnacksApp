@@ -1,8 +1,9 @@
 
 import React from "react";
 import "./About.css";
-// import githubLogo from "../assets/github.png";
-import { Container, Row, Col } from "react-bootstrap";
+import githubLogo from "../assets/github.png";
+import linkedinLogo from "..//assets/linkedin.png";
+
 
 export default function About( { mode } ) {
 
@@ -13,6 +14,8 @@ export default function About( { mode } ) {
     
             I'm currently learning Express, having already studied React, JavaScript, HTML & CSS and I am training to become a software engineer so that I can solve real-world problems.`,
             github: "https://github.com/Wilsantos1975",
+            linkedin:"",
+
         },
 
         {
@@ -23,6 +26,7 @@ export default function About( { mode } ) {
             
             I would very much enjoy working for a start-up (as I have start-up experience) or even a large financial firm, as my experience up until Pursuit has been in the financial markets.`,
             github: "https://github.com/MarkRobertson67",
+            linkedin:"https://www.linkedin.com/in/mark-robertson-ny-uk/",
         },
     ];
 
@@ -31,9 +35,7 @@ export default function About( { mode } ) {
         <div className="about-wrapper" style={{ 
           filter: mode ? "brightness(80%)" : "none",
         }}>
-          <Container fluid>
-            <Row>
-              <Col>
+          
                 <div className="about">
                   <h1>About Our Project</h1>
                   <p>
@@ -58,30 +60,40 @@ export default function About( { mode } ) {
                     The app also includes this "About" page where users can learn about the project and its developers. This page contains a brief project description, as well as a short bio for each teammate and links to their GitHub accounts. The "About" page can be accessed through the navigation bar that appears on every page of the app.
                   </p>
                 </div>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
+              
                 <div className="team">
-                  <h1>Meet the Team</h1>
-                  <div className="team-members">
-                    {teamMembers.map((member, index) => (
-                      <div key={index} className="member-card">
-                        <h3>{member.name}</h3>
-                        <p>{member.bio}</p>
-                        <div className="github-container">
-                          <a href={member.github} target="_blank" rel="noopener noreferrer">
-                            {/* <img src={githubLogo} alt="GitHub Logo" width={40} height={40} /> */}
-                          </a>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      );
-      
+      <h1>Meet the Team</h1>
+      <div className="team-members">
+        {teamMembers.map((member, index) => (
+          <div key={index} className="member-card">
+            <h3>{member.name}</h3>
+            <p>{member.bio}</p>
+            <div className="links-container">
+              <div className="github-container">
+                <a href={member.github} target="_blank" rel="noopener noreferrer">
+                  <img src={githubLogo} alt="GitHub Logo" width={30} height={30} />
+                </a>
+              </div>
+              <div className="linkedin-container">
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                  <img src={linkedinLogo} alt="LinkedIn Logo" width={80} height={26} />
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="trello-board">
+          <a href="https://trello.com/invite/b/q3MjafJY/ATTI5ec278cb24bf01d48f6285b2ddf24ce9D74B7E3C/snacks-simple-project-board" target="_blank" rel="noopener noreferrer">
+          <h1>Trello Board</h1>
+        </a>
+      </div>
+      <div className="wireframe">
+        <a href="https://lucid.app/lucidchart/b4a7f661-b0e1-4ae8-b8d8-744fc2f7ca0d/edit?viewport_loc=-387%2C-17%2C2736%2C1355%2C0_0&invitationId=inv_cc436efd-3923-431e-8c96-ff955f0cb6d6" target="_blank" rel="noopener noreferrer">
+          <h1>Wireframe</h1>
+        </a>
+      </div>
+    </div>
+  </div>
+);
     }
