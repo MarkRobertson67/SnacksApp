@@ -37,8 +37,9 @@ function SnackNewForm() {
     setSnack({ ...snack, [event.target.id]: event.target.value });
   };
 
-  const handleCheckboxChange = () => {
-    setSnack({ ...snack, is_favorite: !snack.is_favorite });
+  const handleCheckboxChange = (event) => {
+    console.log(event.target.id)
+    setSnack({ ...snack, [event.target.id]: !snack[event.target.id] });
   };
 
   const handleSubmit = (event) => {
