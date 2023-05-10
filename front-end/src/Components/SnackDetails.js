@@ -40,7 +40,7 @@ function SnackDetails() {
 
   return (
     <article>
-      <h3>{true ? <span>⭐️</span> : null} {snack.name}</h3>
+      <h3>{snack.is_favorite ? <span>⭐️</span> : null} {snack.name}</h3>
     <h5>
       <span>
           <a href={snack.url}>{snack.name}</a>

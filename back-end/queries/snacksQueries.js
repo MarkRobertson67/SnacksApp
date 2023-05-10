@@ -23,8 +23,7 @@ const getASnack = async (id) => {
 // Create query
 
 const addASnack = async (snack) => {
-  const { name, category, rating, calories, is_vegan, is_halal, is_favorite } =
-    snack;
+  const { name, category, rating, calories, is_vegan, is_halal, is_favorite } = snack;
 
   try {
     const newSnack = await db.one(

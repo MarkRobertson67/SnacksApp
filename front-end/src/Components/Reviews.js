@@ -51,7 +51,7 @@ function Reviews() {
 
   const handleEdit = (updatedReview) => {
     axios
-      .put(`${API}/snacks/${id}/reviews/${updatedReview.id}`, updatedReview)
+      .put(`${API}/snacks/${id}/reviews`, updatedReview)
       .then((response) => {
         const copyReviewArray = [...reviews];
         // console.log(reviews)
@@ -68,20 +68,19 @@ function Reviews() {
 console.log(reviews)
   return ( 
   
-    // <>No work</>
 
     <section className="Reviews">
       <h2>Reviews</h2>
-
-      <ReviewForm handleSubmit={handleAdd}>
-        <h3>Add a New Review</h3>
-      </ReviewForm>
+      <h3>Add a New Review</h3>
+      <ReviewForm handleAdd={handleAdd} handleEdit={handleEdit}/>
+        
+      {/* </ReviewForm> */}
       {reviews.map((review) => (
         <Review
           key={review.id}
           review={review}
           handleDelete={handleDelete}
-          handleEdit={handleEdit}
+          
         />
       ))}
     </section>
