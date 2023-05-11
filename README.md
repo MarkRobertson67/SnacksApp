@@ -1,11 +1,11 @@
 # SnacksApp
-![PIG logo](front-end/src/assets/PigAlot.png){ width="50%" title="Pig-A-Lot" }
+![PIG logo](front-end/src/assets/PigAlot.png)
 
 ### *Install procedure at end of this page* 
 
 # **About Our Project** 
 
-<img src="../front-end/src/assets/PigAlot.png" alt="PIG logo" >
+<!-- <img src="../front-end/src/assets/PigAlot.png" alt="PIG logo" > -->
 
 <!-- <a href="https://NETLIFY LINK" target="_blank">Click here - PigALot App</a> -->
 
@@ -121,7 +121,7 @@ This will start the front-end server at http://localhost:3000.
 To connect to the database and view the tables:
 
 1.  Open the PostgreSQL command line interface by running the following command:   
-        1.  psql -U postgres -f db/schema.sql
+        1.  psql -U postgres -f db/schema.sql<br>
         2.  psql -U postgres -f db/seed.sql
 
 2.  Once logged in, you can view the list of tables by running the following command: \dt
