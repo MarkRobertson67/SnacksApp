@@ -14,7 +14,7 @@ export default function About( { mode } ) {
     
             I'm currently learning Express, having already studied React, JavaScript, HTML & CSS and I am training to become a software engineer so that I can solve real-world problems.`,
             github: "https://github.com/Wilsantos1975",
-            linkedin:"",
+            linkedin:"https://www.linkedin.com/in/fausto-wilghen-santos-9083a9112/",
 
         },
 
