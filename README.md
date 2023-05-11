@@ -1,10 +1,11 @@
 # SnacksApp
-SnacksApp
-# **Install procedure at end of this page** 
+![PIG logo](front-end/src/assets/PigAlot.png){ width="50%" title="Pig-A-Lot" }
+
+### *Install procedure at end of this page* 
 
 # **About Our Project** 
 
-<img src="../assets/PigAlot.png" alt="PIG logo" width="10%" title="Pig-A-Lot">
+<img src="../front-end/src/assets/PigAlot.png" alt="PIG logo" width="10%" title="Pig-A-Lot">
 
 <!-- <a href="https://NETLIFY LINK" target="_blank">Click here - PigALot App</a> -->
 
@@ -70,7 +71,6 @@ I'm currently a Full Stack Web Development Fellow at Pursuit, a 12-month, Google
 
 <a href="https://trello.com/invite/b/q3MjafJY/ATTI5ec278cb24bf01d48f6285b2ddf24ce9D74B7E3C/snacks-simple-project-board" target="_blank">Trello Board</a>
 
-<br></br>
 
 <a href="https://lucid.app/lucidchart/b4a7f661-b0e1-4ae8-b8d8-744fc2f7ca0d/edit?viewport_loc=-387%2C-17%2C2736%2C1355%2C0_0&invitationId=inv_cc436efd-3923-431e-8c96-ff955f0cb6d6" target="_blank">Lucid Wireframe</a>
 
@@ -78,7 +78,7 @@ I'm currently a Full Stack Web Development Fellow at Pursuit, a 12-month, Google
 
 Welcome again to the PigOut Snacks App! This guide will walk you through the installation and setup process to get the app up and running on your local machine.
 
-# **Prerequisites**
+## **Prerequisites**
 
 Before you begin, please ensure that you have the following software installed on your machine:
 
@@ -87,23 +87,24 @@ Before you begin, please ensure that you have the following software installed o
 
 # **Installation**
 
-# **Back-end**
+## **Back-end**
 
 1.  Clone the repository:   git clone <repository URL>
 2.  Navigate to the back-end directory: cd back-end
 3.  Install the back-end dependencies:  npm install
-4.  Create a .env file in the back-end directory and configure the following environment variables: PORT=2525
-PG_HOST=localhost
-PG_PORT=5432
-PG_DATABASE=snacks
-PG_USER=postgres
+4.  Create a .env file in the back-end directory and configure the following environment variables: <br>
+PORT=2525<br>
+PG_HOST=localhost<br>
+PG_PORT=5432<br>
+PG_DATABASE=snacks<br>
+PG_USER=postgres<br>
 5.  Make sure to include in your .gitignore file:   node_modules
 .env
 .DS_Store
 5.  Start the back-end server:  nmp start
 
 
-# **Front-end**
+## **Front-end**
 
 1.  Open a new terminal window and navigate to the front-end directory: cd ../front-end
 2.  Install the front-end dependencies: npm install
@@ -127,13 +128,5 @@ To connect to the database and view the tables:
 3.  To view the contents of a specific table, use the following command:    SELECT * FROM snack;
 
 That's it! You should now have the PigOut Snacks App installed and running on your local machine. Enjoy exploring and indulging in the world of greasy and indulgent snacks!
-
-
-
-
-
-
-
-
 
 
