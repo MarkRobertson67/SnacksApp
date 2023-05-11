@@ -50,12 +50,6 @@ function SnackDetails() {
     setShowConfirm(false);
   };
 
-  //delete
-
-  // const handleDelete = () => {
-  //   deleteSnack();
-  // }
-
   return (
     <article>
 
@@ -86,7 +80,7 @@ function SnackDetails() {
         <div>
           <button onClick={handleDeleteClick}>Delete</button>
           {showConfirm && (
-            <div>
+            <div className="confirm">
               <p>Are you sure you want to delete this deliciousness ?</p>
               <button onClick={handleConfirmClick}>Yes</button>
               <button onClick={handleCancelClick}>No</button>
