@@ -5,7 +5,7 @@
 
 # **About Our Project** 
 
-<img src="../front-end/src/assets/PigAlot.png" alt="PIG logo" width="10%" title="Pig-A-Lot">
+<img src="../front-end/src/assets/PigAlot.png" alt="PIG logo" >
 
 <!-- <a href="https://NETLIFY LINK" target="_blank">Click here - PigALot App</a> -->
 
