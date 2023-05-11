@@ -15,31 +15,21 @@ function Snacks() {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-        marginTop: "-100px",
-      }}
-    >
-      <div className="container mt-4">
-        <table className="table table-bordered">
-          <thead className="table-dark">
-            <tr>
-              <th></th>
-              <th>Take me there</th>
-              <th>See this snack</th>
-            </tr>
-          </thead>
-          <tbody>
-            {snacks.map((snack) => {
-              return <Snack key={snack.id} snack={snack} />;
-            })}
-          </tbody>
-        </table>
-      </div>
+    <div className="container my-5">
+      <table className="table table-striped table-bordered">
+        <thead className="thead-dark">
+          <tr>
+            <th></th>
+            <th>Take me there</th>
+            <th>See this snack</th>
+          </tr>
+        </thead>
+        <tbody>
+          {snacks.map((snack) => {
+            return <Snack key={snack.id} snack={snack} />;
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
