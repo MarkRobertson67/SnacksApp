@@ -1,8 +1,8 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  margin: 170px 0 0; 
-  padding: 0;
+  /* margin: 170px 0 0;  */
+  /* padding-top: 175px; */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,10 +19,11 @@ body {
   padding: 0 20px;
 }
 
-
 .about {
   
   text-align: justify;
+  padding-top: 110px;
+  /* margin-top: 20px;  */
   margin-bottom: 50px;
 }
 
