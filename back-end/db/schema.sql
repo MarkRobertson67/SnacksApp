@@ -28,4 +28,5 @@ CREATE TABLE review (
     reviewer TEXT NOT NULL,
     content TEXT NOT NULL,
     snack_id INTEGER REFERENCES snack(id)
+    ON DELETE CASCADE
 );
