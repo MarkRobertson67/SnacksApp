@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/MarkRobertson67/SnacksApp#readme",
   "dependencies": {
+    "@fontsource/lobster": "^4.5.11",
     "concurrently": "^8.0.1"
   }
 }
