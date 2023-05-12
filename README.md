@@ -101,7 +101,7 @@ PG_USER=postgres<br>
 5.  Make sure to include in your .gitignore file:   node_modules
 .env
 .DS_Store
-5.  Start the back-end server:  nmp start
+5.  Start the back-end server:  npm start, which will actually start Front and back-end.
 
 
 ## **Front-end**
@@ -123,6 +123,10 @@ To connect to the database and view the tables:
 1.  Open the PostgreSQL command line interface by running the following command:   
         1.  psql -U postgres -f db/schema.sql<br>
         2.  psql -U postgres -f db/seed.sql
+        3.  Alternatively: to start the db, npm run db:start & to shutdown the db, npm run db:shutdown
+
+
+
 
 2.  Once logged in, you can view the list of tables by running the following command: \dt
 3.  To view the contents of a specific table, use the following command:    SELECT * FROM snack;

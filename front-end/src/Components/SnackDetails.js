@@ -50,47 +50,58 @@ function SnackDetails() {
     setShowConfirm(false);
   };
 
+
+
   return (
-    <article>
+    <div className="container">
+      <h1>Your Choice Snack is....</h1>
+      <article>
+        <h3>{snack.is_favorite ? <span>⭐️</span> : null} {snack.name}</h3>
+        <h5>
+          <span>
+            <a href={snack.url}>{snack.name}</a>
+          </span>{" "}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {snack.url}
+        </h5>
+        <h6>{snack.category}</h6>
+        <p>{snack.description}</p>
 
-      <h3>{snack.is_favorite ? <span>⭐️</span> : null} {snack.name}</h3>
-    <h5>
-      <span>
-          <a href={snack.url}>{snack.name}</a>
-        </span>{" "}
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {snack.url}
-      </h5>
-      <h6>{snack.category}</h6>
-      <p>{snack.description}</p>
-
-      <div className="showNavigation">
-        <div>
-          {" "}
-          <Link to={`/snacks`}>
-            <button>Back</button>
-          </Link>
+        <div className="row">
+          <div className="col-md-4">
+            <Link to={`/snacks`} className="btn btn-primary">
+              Back
+            </Link>
+          </div>
+          <div className="col-md-4">
+            <Link to={`/snacks/${id}/edit`} className="btn btn-primary">
+              Edit
+            </Link>
+          </div>
+          <div className="col-md-4">
+            <button onClick={handleDeleteClick} className="btn btn-danger">
+              Delete
+            </button>
+            {showConfirm && (
+              <div className="confirm">
+                <p>Are you sure you want to delete this deliciousness?</p>
+                <button onClick={handleConfirmClick} className="btn btn-danger">
+                  Yes
+                </button>
+                <button
+                  onClick={handleCancelClick}
+                  className="btn btn-secondary"
+                >
+                  No
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-
-        <div>
-          <Link to={`/snacks/${id}/edit`}>
-            <button>Edit</button>
-          </Link>
-        </div>
-
-        <div>
-          <button onClick={handleDeleteClick}>Delete</button>
-          {showConfirm && (
-            <div className="confirm">
-              <p>Are you sure you want to delete this deliciousness ?</p>
-              <button onClick={handleConfirmClick}>Yes</button>
-              <button onClick={handleCancelClick}>No</button>
-            </div>
-          )}
-        </div>
-      </div>
+      </article>
       <Reviews snack={snack} />
-    </article>
+    </div>
   );
+
 }
 
 export default SnackDetails;
