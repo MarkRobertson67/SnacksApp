@@ -47,80 +47,114 @@ function SnackNewForm() {
     event.preventDefault();
     addSnack(snack);
   };
+
+  
   return (
-    <div className="New">
+    <div className="container my-5">
+      <h1>Add a new Snack</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          id="name"
-          value={snack.name}
-          type="text"
-          onChange={handleTextChange}
-          placeholder="Name of Snack"
-          required
-        />
-        
-        <label htmlFor="category">Category:</label>
-        <input
-          id="category"
-          type="text"
-          name="category"
-          value={snack.category}
-          placeholder="super spicy, little spicy, ..."
-          onChange={handleTextChange}
-        />
-        
-        <label htmlFor="rating">Rating:</label>
-        <input
-          id="rating"
-          type="number"
-          name="rating"
-          value={snack.rating}
-          placeholder="Zero to 5"
-          onChange={handleTextChange}
-        />
+        <div className="row">
+          <div className="col-md-6">
+            <div className="form-group">
+              <label htmlFor="name">Name:</label>
+              <input
+                id="name"
+                className="form-control"
+                value={snack.name}
+                type="text"
+                onChange={handleTextChange}
+                placeholder="Name of Snack"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="category">Category:</label>
+              <input
+                id="category"
+                className="form-control"
+                type="text"
+                name="category"
+                value={snack.category}
+                placeholder="super spicy, little spicy, ..."
+                onChange={handleTextChange}
+              />
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="form-group">
+              <label htmlFor="rating">Rating:</label>
+              <input
+                id="rating"
+                className="form-control"
+                type="number"
+                name="rating"
+                value={snack.rating}
+                placeholder="Zero to 5"
+                onChange={handleTextChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="calories">Calories:</label>
+              <input
+                id="calories"
+                className="form-control"
+                type="number"
+                name="calories"
+                value={snack.calories}
+                onChange={handleTextChange}
+              />
+            </div>
+          </div>
+        </div>
 
-        <label htmlFor="calories">Calories:</label>
-        <input
-          id="calories"
-          type="number"
-          name="calories"
-          value={snack.calories}
-          onChange={handleTextChange}
-        />
+        <div className="form-group form-check">
+          <input
+            id="is_vegan"
+            className="form-check-input"
+            type="checkbox"
+            onChange={handleCheckboxChange}
+            checked={snack.is_vegan}
+          />
+          <label htmlFor="is_vegan" className="form-check-label">
+            Is vegan
+          </label>
+        </div>
 
-        <label htmlFor="is_vegan">Is vegan:</label>
-        <input
-          id="is_vegan"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={snack.is_vegan}
-        />
+        <div className="form-group form-check">
+          <input
+            id="is_halal"
+            className="form-check-input"
+            type="checkbox"
+            onChange={handleCheckboxChange}
+            checked={snack.is_halal}
+          />
+          <label htmlFor="is_halal" className="form-check-label">
+            Is Halal
+          </label>
+        </div>
 
-        <label htmlFor="is_halal">Is Halal:</label>
-        <input
-          id="is_halal"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={snack.is_halal}
-        />
-
-        <label htmlFor="is_favorite">Favorite:</label>
-        <input
-          id="is_favorite"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={snack.is_favorite}
-        />
+        <div className="form-group form-check">
+          <input
+            id="is_favorite"
+            className="form-check-input"
+            type="checkbox"
+            onChange={handleCheckboxChange}
+            checked={snack.is_favorite}
+          />
+          <label htmlFor="is_favorite" className="form-check-label">
+            Favorite
+          </label>
+        </div>
 
         <br />
-        <input type="submit" />
-        <Link to={`/snacks`}>
-        <button>Nevermind!</button>
-      </Link>
+        <button type="submit" className="btn btn-primary">Submit</button>
+        <Link to={`/snacks`} className="btn btn-secondary ml-2">
+          Nevermind!
+        </Link>
       </form>
     </div>
   );
+
 }
 
 export default SnackNewForm;
