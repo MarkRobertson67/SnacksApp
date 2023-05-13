@@ -60,6 +60,8 @@ export default function About( { mode } ) {
                   <p>
                     The app also includes this "About" page where users can learn about the project and its developers. This page contains a brief project description, as well as a short bio for each teammate and links to their GitHub accounts. The "About" page can be accessed through the navigation bar that appears on every page of the app.
                   </p>
+                  <em><p>(Please see readme.md for additional information)</p></em>
+
                 </div>
               
                 <div className="team">
