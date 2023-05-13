@@ -71,7 +71,6 @@ console.log(reviews)
 
     <section className="Reviews">
       <h2>Reviews</h2>
-      <h3>Add a New Review</h3>
       <ReviewForm handleAdd={handleAdd} handleEdit={handleEdit}/>
         
       {/* </ReviewForm> */}
