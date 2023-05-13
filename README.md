@@ -41,10 +41,10 @@ The app also includes this "About" page where users can learn about the project 
 
 ### New Snack Page
 
-| ![image](./public/newsnack.png "New Snack Page") |
+| ![image](./front-end/src/assets/NewSnackPage.png "New Snack Page") |
 |-|
 
-
+/Users/markrobertson/Desktop/SnacksAppFolder/front-end/src/assets/NewSnackPage.png
 
 <br></br>
 ## 😁 Meet the Team 😁
