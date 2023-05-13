@@ -67,11 +67,19 @@ function Reviews() {
   };
 console.log(reviews)
   return ( 
-  
 
     <section className="Reviews">
-      <h2>Reviews</h2>
-      <ReviewForm handleAdd={handleAdd} handleEdit={handleEdit}/>
+      <h1 className="text-center"
+        style={{
+          textAlign: "center",
+          fontFamily: "Comic Sans MS, cursive",
+          background: 'linear-gradient(to right, blue, red)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
+        Reviews</h1>
+      {/* <ReviewForm handleAdd={handleAdd} handleEdit={handleEdit}/> */}
         
       {/* </ReviewForm> */}
       {reviews.map((review) => (
@@ -79,9 +87,9 @@ console.log(reviews)
           key={review.id}
           review={review}
           handleDelete={handleDelete}
-          
         />
       ))}
+      <ReviewForm handleAdd={handleAdd} handleEdit={handleEdit}/>
     </section>
   );
 }

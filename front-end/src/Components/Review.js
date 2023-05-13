@@ -15,9 +15,7 @@ function Review({ review, handleDelete, handleSubmit, handleEdit }) {
 
   return (
     <div className="Review">
-      <button className="btn btn-primary" onClick={toggleView}>
-        Edit this review
-      </button>
+      
       {viewEditForm ? (
         <ReviewForm reviewDetails={review} toggleView={toggleView} />
       ) : (
@@ -27,6 +25,9 @@ function Review({ review, handleDelete, handleSubmit, handleEdit }) {
           </h4>
           <h5>{review.reviewer}</h5>
           <p>{review.content}</p>
+          <button className="btn btn-primary" onClick={toggleView}>
+        Edit this review
+      </button>
           <button className="btn btn-danger" onClick={() => handleDelete(review.id)}>
             Delete
           </button>
