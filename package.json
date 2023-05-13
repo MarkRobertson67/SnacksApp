@@ -9,9 +9,11 @@
     "start:frontend": "cd front-end && npm start",
     "start:backend": "cd back-end && nodemon server.js",
     "db:setup": "psql -U postgres -f db/schema.sql && psql -U postgres -f db/seed.sql",
-  "db:shutdown": "pg_ctl -D /path/to/your/database/directory stop",
-  "db:start": "pg_ctl -D /path/to/your/database/directory start"
-  },
+    "db:shutdown": "pg_ctl -D \"/Users/markrobertson/Library/Application Support/Postgres/var-15\" stop",
+    "db:start": "pg_ctl -D \"/Users/markrobertson/Library/Application Support/Postgres/var-15\" start"
+  }
+  ,
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MarkRobertson67/SnacksApp.git"
