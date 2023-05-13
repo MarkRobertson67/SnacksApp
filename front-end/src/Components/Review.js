@@ -15,27 +15,25 @@ function Review({ review, handleDelete, handleSubmit, handleEdit }) {
 
   return (
     <div className="Review">
-      <button onClick={toggleView}>edit this review</button>
-      {
-        viewEditForm ? (
-          <ReviewForm
-            reviewDetails={review}
-            toggleView={toggleView}
-            // handleEdit={handleEdit}
-          />
-        ) : (
-          <div>
-            <h4>
-              {review.title} <span>{review.rating}</span>
-            </h4>
-            <h5>{review.reviewer}</h5>
-            <p>{review.content}</p>
-            <button onClick={() => handleDelete(review.id)} >delete</button>
-          </div>
-        )
-      }
+      <button className="btn btn-primary" onClick={toggleView}>
+        Edit this review
+      </button>
+      {viewEditForm ? (
+        <ReviewForm reviewDetails={review} toggleView={toggleView} />
+      ) : (
+        <div>
+          <h4>
+            {review.title} <span className="badge bg-secondary">{review.rating}</span>
+          </h4>
+          <h5>{review.reviewer}</h5>
+          <p>{review.content}</p>
+          <button className="btn btn-danger" onClick={() => handleDelete(review.id)}>
+            Delete
+          </button>
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
 export default Review;

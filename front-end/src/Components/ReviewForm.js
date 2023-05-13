@@ -41,51 +41,67 @@ setReview({...review, [event.target.id]: event.target.value})
   }
 
   return (
-    <div className="Edit">
-      {/* {props.children} */}
+    <div className="container my-5">
+      <div className="w-50 mx-auto">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="reviewer">Name:</label>
-        <input
-          id="reviewer"
-          value={review.reviewer}
-          type="text"
-          onChange={handleTextChange}
-          placeholder="Your name"
-          required
-        />
-        <label htmlFor="title">Title:</label>
-        <input
-          id="title"
-          type="text"
-          required
-          value={review.title}
-          onChange={handleTextChange}
-        />
-        <label htmlFor="rating">Rating:</label>
-        <input
-          id="rating"
-          type="number"
-          name="rating"
-          min="0"
-          max="5"
-          step="1"
-          value={review.rating}
-          onChange={handleTextChange}
-        />
-        <label htmlFor="content">Review:</label>
-        <textarea
-          id="content"
-          type="text"
-          name="content"
-          value={review.content}
-          placeholder="What do you think..."
-          onChange={handleTextChange}
-        />
+        <div className="form-group">
+        <h3>Add a New Review</h3>
+          <label htmlFor="reviewer">Name:</label>
+          <input
+            id="reviewer"
+            className="form-control"
+            value={review.reviewer}
+            type="text"
+            onChange={handleTextChange}
+            placeholder="Your name"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="title">Title:</label>
+          <input
+            id="title"
+            className="form-control"
+            type="text"
+            required
+            value={review.title}
+            onChange={handleTextChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="rating">Rating:</label>
+          <input
+            id="rating"
+            className="form-control"
+            type="number"
+            name="rating"
+            min="0"
+            max="5"
+            step="1"
+            value={review.rating}
+            onChange={handleTextChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="content">Review:</label>
+          <textarea
+            id="content"
+            className="form-control"
+            type="text"
+            name="content"
+            value={review.content}
+            placeholder="What do you think..."
+            onChange={handleTextChange}
+          />
+        </div>
 
         <br />
 
-        <input type="submit" />
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
+      </div>
     </div>
   );
 }
