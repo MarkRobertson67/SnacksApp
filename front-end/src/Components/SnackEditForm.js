@@ -54,7 +54,7 @@ function SnackEditForm() {
 
 
   return (
-    <div className="Edit">
+    <div className="container my-5">
       <h1>Edit this Snack</h1>
       <form onSubmit={handleSubmit}>
         <div className="row">

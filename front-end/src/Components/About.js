@@ -5,7 +5,7 @@ import githubLogo from "../assets/github.png";
 import linkedinLogo from "..//assets/linkedin.png";
 
 
-export default function About( { mode } ) {
+export default function About( { mode } ) {   // mode because 
 
     const teamMembers = [
         {
