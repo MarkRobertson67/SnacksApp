@@ -54,7 +54,16 @@ function SnackDetails() {
 
   return (
     <div className="container text-center mt-4">
-  <h1 className="text-center">Your Choice Snack is....</h1>
+  <h1 className="text-center"
+        style={{
+          textAlign: "center",
+          fontFamily: "Comic Sans MS, cursive",
+          background: 'linear-gradient(to right, blue, red)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
+        Your Choice Snack is....</h1>
   <article>
     <h3>
       {snack.is_favorite ? <span>⭐️</span> : null} {snack.name}
@@ -92,7 +101,7 @@ function SnackDetails() {
         )}
       </div>
     </div>
-  </article>
+  </article><br />
   <Reviews snack={snack} />
 </div>
 
