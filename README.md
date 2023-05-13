@@ -29,13 +29,13 @@ The app also includes this "About" page where users can learn about the project 
 <!-- <img src="./public/homescreen.png" alt="Screenshot a" width="68%" title="The Home Screen"> -->
 ### The Home Screen
 
-| ![image](./public/homescreen.png "The Home Screen") |
+| ![image](./front-end/src/assets/HomeScreen.png "The Home Screen") |
 |-|
 
 
 ### Individual Snack Page
 
-| ![image](./public/showsnack.png "Individual Snack Page") |
+| ![image](./front-end/src/assets/IndividualSnack.png "Individual Snack Page") |
 |-|
 
 
