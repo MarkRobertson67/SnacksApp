@@ -100,6 +100,7 @@ function SnackNewForm() {
                 className="form-control"
                 type="number"
                 name="calories"
+                placeholder="Guestimate if not sure"
                 value={snack.calories}
                 onChange={handleTextChange}
               />

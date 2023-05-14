@@ -40,67 +40,93 @@ setReview({...review, [event.target.id]: event.target.value})
     })
   }
 
+  const handleNevermind = () => {
+    setReview({
+      reviewer: "",
+      title: "",
+      content: "",
+      rating: "",
+      snack_id: id,
+    });
+  };
+
+
   return (
     <div className="container my-5">
-      <div className="w-50 mx-auto">
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-        <h3>Add a New Review</h3>
-          <label htmlFor="reviewer">Name:</label>
-          <input
-            id="reviewer"
-            className="form-control"
-            value={review.reviewer}
-            type="text"
-            onChange={handleTextChange}
-            placeholder="Your name"
-            required
-          />
+      <h3>Add a New Review</h3>
+      <div className="row">
+        <div className="col-md-6">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="reviewer">Name:</label>
+              <input
+                id="reviewer"
+                className="form-control"
+                value={review.reviewer}
+                type="text"
+                onChange={handleTextChange}
+                placeholder="Your name"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="title">Title:</label>
+              <input
+                id="title"
+                className="form-control"
+                placeholder="Give your review a title"
+                type="text"
+                required
+                value={review.title}
+                onChange={handleTextChange}
+              />
+            </div>
+            <div className="d-flex justify-content-start"> {/* Updated the alignment */}
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary ml-2"
+                onClick={handleNevermind}
+              >
+                Nevermind
+              </button>
+            </div>
+          </form>
         </div>
-        <div className="form-group">
-          <label htmlFor="title">Title:</label>
-          <input
-            id="title"
-            className="form-control"
-            type="text"
-            required
-            value={review.title}
-            onChange={handleTextChange}
-          />
+        <div className="col-md-6">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="rating">Rating:</label>
+              <input
+                id="rating"
+                className="form-control"
+                placeholder="Zero to 5"
+                type="number"
+                name="rating"
+                min="0"
+                max="5"
+                step="1"
+                value={review.rating}
+                onChange={handleTextChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="content">Review:</label>
+              <textarea
+                id="content"
+                className="form-control"
+                type="text"
+                name="content"
+                value={review.content}
+                placeholder="What do you think..."
+                onChange={handleTextChange}
+                rows="1"
+              />
+            </div>
+          </form>
         </div>
-        <div className="form-group">
-          <label htmlFor="rating">Rating:</label>
-          <input
-            id="rating"
-            className="form-control"
-            type="number"
-            name="rating"
-            min="0"
-            max="5"
-            step="1"
-            value={review.rating}
-            onChange={handleTextChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="content">Review:</label>
-          <textarea
-            id="content"
-            className="form-control"
-            type="text"
-            name="content"
-            value={review.content}
-            placeholder="What do you think..."
-            onChange={handleTextChange}
-          />
-        </div>
-
-        <br />
-
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
       </div>
     </div>
   );
