@@ -5,9 +5,39 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-function ReviewEditForm() {
-  let { id } = useParams();
-  let navigate = useNavigate();
+function ReviewEditForm(props) {
+  const { id } = useParams();
+  const { reviewDetails } = props;
+  
+  const [reviews, setReviews] = useState([]);
+
+  const [review, setReview] = useState({
+    reviewer: "",
+    title: "",
+    content: "",
+    rating: "",
+    snack_id: id,
+    is_favorite: false,
+  })
+
+  const handleTextChange = (event) => {
+setReview({...review, [event.target.id]: event.target.value})
+  }
+
+  useEffect(() => {
+    if (reviewDetails) {
+      setReview(reviewDetails)
+    }
+  }, [id, reviewDetails, props ])
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleEdit(review, id);
+    window.location.reload(false);
+    if (reviewDetails) {
+      props.toggleView()
+    }
+  }
 
   const [snack, setSnack] = useState({
     name: "",
@@ -19,143 +49,126 @@ function ReviewEditForm() {
     is_favorite: false,
   });
 
-  const updateSnack = (updatedSnack) => {
-    axios
-      .put(`${API}/snacks/${id}`, updatedSnack)
-      .then(
-        () => {
-          navigate(`/snacks/${id}`);
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
-  };
-
-  const handleTextChange = (event) => {
-    setSnack({ ...snack, [event.target.id]: event.target.value });
-  };
-
   const handleCheckboxChange = (event) => {
     console.log(event.target.id)
     setSnack({ ...snack, [event.target.id]: !snack[event.target.id] });
   };
 
-  useEffect(() => {
-    axios.get(`${API}/snacks/${id}`).then(
-      (response) => setSnack(response.data),
-      (error) => navigate(`/not-found`)
-    );
-  }, [id, navigate]);
+  const handleEdit = (updatedReview) => {
+    axios
+      .put(`${API}/snacks/${id}/reviews/${updatedReview.id}`, updatedReview)
+      .then((response) => {
+        const copyReviewArray = [...reviews];
+        const indexUpdatedReview = copyReviewArray.findIndex((review) => {
+          return review.id === updatedReview.id;
+        });
+        copyReviewArray[indexUpdatedReview] = response.data;
+console.log("handle edit", response.data)
+        setReviews(copyReviewArray);
+      })
+      .catch((c) => console.warn("catch", c));
+  };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    updateSnack(snack, id);
+
+  const handleNevermind = () => {
+    setReview({
+      reviewer: "",
+      title: "",
+      content: "",
+      rating: "",
+      snack_id: id,
+      is_favorite: false,
+    });
   };
 
 
   return (
     <div className="container my-5">
-      <h1>Edit this Snack</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="row">
-          <div className="col-md-6">
+      <h3>Edit Review</h3>
+      <div className="row justify-content-center"> {/* Center the row */}
+        <div className="col-md-6">
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="name">Name:</label>
+              <label htmlFor="reviewer">Name:</label>
               <input
-                id="name"
+                id="reviewer"
                 className="form-control"
-                value={snack.name}
+                value={review.reviewer}
                 type="text"
                 onChange={handleTextChange}
-                placeholder="Name of Snack"
+                placeholder="Your name"
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="category">Category:</label>
+              <label htmlFor="title">Title:</label>
               <input
-                id="category"
+                id="title"
                 className="form-control"
+                placeholder="Give your review a title"
                 type="text"
-                name="category"
-                value={snack.category}
-                placeholder="super spicy, little spicy, ..."
+                required
+                value={review.title}
                 onChange={handleTextChange}
               />
             </div>
-          </div>
-          <div className="col-md-6">
             <div className="form-group">
               <label htmlFor="rating">Rating:</label>
               <input
                 id="rating"
                 className="form-control"
+                placeholder="Zero to 5"
                 type="number"
                 name="rating"
-                value={snack.rating}
+                min="0"
+                max="5"
+                step="1"
+                value={review.rating}
                 onChange={handleTextChange}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="calories">Calories:</label>
-              <input
-                id="calories"
+              <label htmlFor="content">Review:</label>
+              <textarea
+                id="content"
                 className="form-control"
-                type="number"
-                name="calories"
-                value={snack.calories}
+                type="text"
+                name="content"
+                value={review.content}
+                placeholder="What do you think..."
                 onChange={handleTextChange}
+                rows="1"
               />
             </div>
-          </div>
+            <div className="form-group d-flex align-items-center">
+              <input
+                id="is_favorite"
+                className="form-check-input"
+                type="checkbox"
+                onChange={handleCheckboxChange}
+                checked={snack.is_favorite}
+              />
+              <label htmlFor="is_favorite" className="form-check-label">
+              is this your favorite?
+              </label>
+            </div>
+
+
+            <div className="d-flex justify-content-start"> {/* Updated the alignment */}
+              <button type="submit" className="btn btn-primary btn-sm">
+                Submit
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary ml-2 btn-sm"
+                onClick={handleNevermind}
+              >
+                Nevermind
+              </button>
+            </div>
+          </form>
         </div>
-
-        <div className="form-group form-check">
-          <input
-            id="is_vegan"
-            className="form-check-input"
-            type="checkbox"
-            onChange={handleCheckboxChange}
-            checked={snack.is_vegan}
-          />
-          <label htmlFor="is_vegan" className="form-check-label">
-            Is vegan
-          </label>
-        </div>
-
-        <div className="form-group form-check">
-          <input
-            id="is_halal"
-            className="form-check-input"
-            type="checkbox"
-            onChange={handleCheckboxChange}
-            checked={snack.is_halal}
-          />
-          <label htmlFor="is_halal" className="form-check-label">
-            Is Halal
-          </label>
-        </div>
-
-        <div className="form-group form-check">
-          <input
-            id="is_favorite"
-            className="form-check-input"
-            type="checkbox"
-            onChange={handleCheckboxChange}
-            checked={snack.is_favorite}
-          />
-          <label htmlFor="is_favorite" className="form-check-label">
-            Favorite
-          </label>
-        </div>
-
-        <br />
-
-        <button type="submit" className="btn btn-primary">Submit</button>
-        <Link to={`/reviews/${id}`} className="btn btn-secondary ml-2">
-          Nevermind!
-        </Link>
-      </form>
+      </div>
     </div>
   );
 

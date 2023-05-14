@@ -1,6 +1,7 @@
 
 import { useState } from "react";
-import ReviewForm from "./ReviewForm";
+import ReviewEditForm from "./ReviewEditForm";
+
 
 function Review({ review, handleDelete, handleSubmit, handleEdit }) {
   const [viewEditForm, toggleEditForm] = useState(false);
@@ -17,7 +18,7 @@ function Review({ review, handleDelete, handleSubmit, handleEdit }) {
     <div className="Review">
       
       {viewEditForm ? (
-        <ReviewForm reviewDetails={review} toggleView={toggleView} />
+        <ReviewEditForm reviewDetails={review} toggleView={toggleView} />
       ) : (
         <div>
           <h4>
