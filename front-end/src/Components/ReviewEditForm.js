@@ -47,19 +47,13 @@ setReview({...review, [event.target.id]: event.target.value})
           return review.id === updatedReview.id;
         });
         copyReviewArray[indexUpdatedReview] = response.data;
-console.log("handle edit", response.data)
         setReviews(copyReviewArray);
       })
       .catch((c) => console.warn("catch", c));
   };
 
   const handleNevermind = () => {
-    setReview({
-      reviewer: "",
-      title: "",
-      content: "",
-      snack_id: id,
-    });
+    return !props.toggleView()
   };
 
 
@@ -108,7 +102,7 @@ console.log("handle edit", response.data)
             </div>
 
 
-            <div className="d-flex justify-content-start"> {/* Updated the alignment */}
+            <div className="d-flex justify-content-start"> 
               <button type="submit" className="btn btn-primary btn-sm">
                 Submit
               </button>

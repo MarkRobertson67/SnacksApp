@@ -87,8 +87,6 @@ function SnackDetails() {
   />
 )}
 
-
-
     <div className="row text-center">
       <div className="col-md-4 mx-auto">
         <Link to={`/snacks`} className="btn btn-primary btn-sm">
