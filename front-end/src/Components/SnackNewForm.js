@@ -19,14 +19,12 @@ function SnackNewForm() {
     is_favorite: false,
   });
 
-  
-
   const addSnack = (newSnack) => {
     axios
       .post(`${API}/snacks`, newSnack)
       .then(
         () => {
-          navigate(`/snacks`);
+          navigate(`/snacks/:{id}`);
         },
         (error) => console.error(error)
       )
