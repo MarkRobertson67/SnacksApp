@@ -2,6 +2,11 @@
 
 
 INSERT INTO snack (name, category, rating, calories, is_vegan, is_halal, is_favorite) VALUES
+('Pizza Hut Big New Yorker', 'Fast Food', 3, 309, false, false, true), 
+('Taco Bell Chili Chese Burrito', 'Fast Food', 2, 380, false, false, true), 
+('Skittles', 'Candy', 4, 250, false, false, true), 
+('Haribo GoldBears', 'Candy', 4, 473, false, false, true), 
+('Burger King', 'Fast Food', 3, 1170, false, false, true), 
 ('Wendys Double Baconator', 'Fast Food', 3, 1150, false, false, true),   
 ('Godiva Milk Chocolate Decadence','Candy', 5, 897, true, false, true),  
 ('Orville Reddenbachers Movie Theater Butter', 'Snacks', 4, 890, true, false, false),   
