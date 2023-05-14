@@ -89,7 +89,16 @@ const handleAdd = (newReview) => {
 
   return (
     <div className="container my-5">
-      <h3>Add a New Review</h3>
+      <h1 className="text-center"
+        style={{
+          textAlign: "center",
+          fontFamily: "Comic Sans MS, cursive",
+          background: 'linear-gradient(to right, blue, red)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
+        Add a New Review</h1>
       <div className="row justify-content-center"> {/* Center the row */}
         <div className="col-md-6">
           <form onSubmit={handleSubmit}>
