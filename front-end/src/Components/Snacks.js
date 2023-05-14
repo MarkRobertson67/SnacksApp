@@ -18,11 +18,13 @@ function Snacks() {
     <div className="container my-5">
       <table className="table table-striped table-bordered">
         <thead className="thead-dark"> 
-        {/* add columbs for is vegan and is halal */}
+     
           <tr>
             <th>Favorite</th>
             <th>Snack</th>
             <th>See this snack</th>
+            <th>is Vegan ?</th>
+            <th>is Halal ?</th>
           </tr>
         </thead>
         <tbody>
