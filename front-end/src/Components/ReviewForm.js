@@ -2,13 +2,13 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+const API = process.env.REACT_APP_API_URL;
 
 function ReviewForm(props) {
-  console.log(props)
+  
   const { id } = useParams();
   const { reviewDetails } = props;
-
-  const API = process.env.REACT_APP_API_URL;
+  const [reviews, setReviews] = useState([]);
 
   const [review, setReview] = useState({
     reviewer: "",
@@ -31,7 +31,7 @@ setReview({...review, [event.target.id]: event.target.value})
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleAdd(review, id);
+    handleAdd(review, id);
     
     if (reviewDetails) {
       props.toggleView()
@@ -156,35 +156,6 @@ const handleAdd = (newReview) => {
               is this your favorite?
               </label>
             </div>
-
-            <div className="form-group d-flex align-items-center">
-              <input
-                id="is_vegan"
-                className="form-check-input"
-                type="checkbox"
-                onChange={handleCheckboxChange}
-                checked={snack.is_vegan}
-              />
-              <label htmlFor="is_vegan" className="form-check-label">
-                is this vegan?
-              </label>
-            </div>
-
-            <div className="form-group d-flex align-items-center">
-              <input
-                id="is_vegan"
-                className="form-check-input"
-                type="checkbox"
-                onChange={handleCheckboxChange}
-                checked={snack.is_halal}
-              />
-              <label htmlFor="is_halal" className="form-check-label">
-                is this halal?
-              </label>
-            </div>
-
-            
-
 
 
             <div className="d-flex justify-content-start"> {/* Updated the alignment */}
