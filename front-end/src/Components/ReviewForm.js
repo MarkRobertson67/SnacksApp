@@ -137,9 +137,40 @@ setReview({...review, [event.target.id]: event.target.value})
                 checked={snack.is_favorite}
               />
               <label htmlFor="is_favorite" className="form-check-label">
-                Favorite
+              is this your favorite?
               </label>
             </div>
+
+            <div className="form-group d-flex align-items-center">
+              <input
+                id="is_vegan"
+                className="form-check-input"
+                type="checkbox"
+                onChange={handleCheckboxChange}
+                checked={snack.is_vegan}
+              />
+              <label htmlFor="is_vegan" className="form-check-label">
+                is this vegan?
+              </label>
+            </div>
+
+            <div className="form-group d-flex align-items-center">
+              <input
+                id="is_vegan"
+                className="form-check-input"
+                type="checkbox"
+                onChange={handleCheckboxChange}
+                checked={snack.is_halal}
+              />
+              <label htmlFor="is_halal" className="form-check-label">
+                is this halal?
+              </label>
+            </div>
+
+            
+
+
+
             <div className="d-flex justify-content-start"> {/* Updated the alignment */}
               <button type="submit" className="btn btn-primary btn-sm">
                 Submit
