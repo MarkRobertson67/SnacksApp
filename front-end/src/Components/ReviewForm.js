@@ -12,6 +12,7 @@ function ReviewForm({ handleAdd, toggleView , reviewDetails, props }) {
     content: "",
     rating: "",
     snack_id: id,
+    is_favorite: false,
   })
 
   const handleTextChange = (event) => {
@@ -37,8 +38,24 @@ setReview({...review, [event.target.id]: event.target.value})
       content: "",
       rating: "",
       snack_id: id,
+      is_favorite: false,
     })
   }
+
+  const [snack, setSnack] = useState({
+    name: "",
+    category: "",
+    rating: "",
+    calories: "",
+    is_vegan: false,
+    is_halal: false,
+    is_favorite: false,
+  });
+
+  const handleCheckboxChange = (event) => {
+    console.log(event.target.id)
+    setSnack({ ...snack, [event.target.id]: !snack[event.target.id] });
+  };
 
   const handleNevermind = () => {
     setReview({
@@ -47,6 +64,7 @@ setReview({...review, [event.target.id]: event.target.value})
       content: "",
       rating: "",
       snack_id: id,
+      is_favorite: false,
     });
   };
 
@@ -54,7 +72,7 @@ setReview({...review, [event.target.id]: event.target.value})
   return (
     <div className="container my-5">
       <h3>Add a New Review</h3>
-      <div className="row">
+      <div className="row justify-content-center"> {/* Center the row */}
         <div className="col-md-6">
           <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -81,22 +99,6 @@ setReview({...review, [event.target.id]: event.target.value})
                 onChange={handleTextChange}
               />
             </div>
-            <div className="d-flex justify-content-start"> {/* Updated the alignment */}
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-              <button
-                type="button"
-                className="btn btn-secondary ml-2"
-                onClick={handleNevermind}
-              >
-                Nevermind
-              </button>
-            </div>
-          </form>
-        </div>
-        <div className="col-md-6">
-          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="rating">Rating:</label>
               <input
@@ -125,11 +127,36 @@ setReview({...review, [event.target.id]: event.target.value})
                 rows="1"
               />
             </div>
+            <div className="form-group d-flex align-items-center">
+              <input
+                id="is_favorite"
+                className="form-check-input"
+                type="checkbox"
+                onChange={handleCheckboxChange}
+                checked={snack.is_favorite}
+              />
+              <label htmlFor="is_favorite" className="form-check-label">
+                Favorite
+              </label>
+            </div>
+            <div className="d-flex justify-content-start"> {/* Updated the alignment */}
+              <button type="submit" className="btn btn-primary btn-sm">
+                Submit
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary ml-2 btn-sm"
+                onClick={handleNevermind}
+              >
+                Nevermind
+              </button>
+            </div>
           </form>
         </div>
       </div>
     </div>
   );
+  
 }
 
 export default ReviewForm;

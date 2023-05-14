@@ -64,36 +64,37 @@ function Reviews() {
       .catch((c) => console.warn("catch", c));
   };
 
-console.log(reviews)
+  console.log(reviews);
 
-return (
-  <section className="Reviews container">
-    <h1
-      className="text-center"
-      style={{
-        textAlign: "center",
-        fontFamily: "Comic Sans MS, cursive",
-        background: "linear-gradient(to right, blue, red)",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-      }}
-    >
-      Reviews
-    </h1>
-    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
-      {reviews.length > 0 ? (
-        reviews.map((review) => (
-          <div key={review.id} className="col">
-            <Review review={review} handleDelete={handleDelete} />
-          </div>
-        ))
-      ) : (
-        <div className="col text-center">No reviews available</div>
-      )}
-    </div>
-    <ReviewForm handleAdd={handleAdd} handleEdit={handleEdit} />
-  </section>
-);
+  return (
+    <section className="Reviews container">
+      <h1
+        className="text-center"
+        style={{
+          textAlign: "center",
+          fontFamily: "Comic Sans MS, cursive",
+          background: "linear-gradient(to right, blue, red)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        }}
+      >
+        Reviews
+      </h1>
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+        {reviews.length > 0 ? (
+          reviews.map((review) => (
+            <div key={review.id} className="col">
+              <Review review={review} handleDelete={handleDelete} />
+            </div>
+          ))
+        ) : (
+          <div className="col text-center">No reviews available</div>
+        )}
+      </div>
+      <ReviewForm handleAdd={handleAdd} handleEdit={handleEdit} />
+    </section>
+  );
+
 }
 
 export default Reviews;
