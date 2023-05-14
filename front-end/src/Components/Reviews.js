@@ -14,7 +14,7 @@ function Reviews() {
     axios
       .get(`${API}/snacks/${id}/reviews`)
       .then((response) => {
-        console.log(response);
+        console.log(response.data,"checking for array")
         setReviews(response.data);
       })
       .catch((e) => console.log(e));
@@ -44,30 +44,27 @@ function Reviews() {
           copyReviewArray.splice(indexDeletedReview, 1);
           setReviews(copyReviewArray);
         },
-        // (error) => console.error(error)
+      
       )
       .catch((c) => console.warn("catch", c));
   };
 
   const handleEdit = (updatedReview) => {
     axios
-      .put(`${API}/snacks/${id}/reviews`, updatedReview)
+      .put(`${API}/snacks/${id}/reviews/${updatedReview.id}`, updatedReview)
       .then((response) => {
         const copyReviewArray = [...reviews];
-        // console.log(reviews)
         const indexUpdatedReview = copyReviewArray.findIndex((review) => {
           return review.id === updatedReview.id;
         });
-
         copyReviewArray[indexUpdatedReview] = response.data;
 
         setReviews(copyReviewArray);
       })
       .catch((c) => console.warn("catch", c));
   };
+
 console.log(reviews)
-
-
 
 return (
   <section className="Reviews container">
