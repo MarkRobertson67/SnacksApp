@@ -17,8 +17,25 @@ function Snack({ snack }) {
         </a>
       </td>
       <td>
-        <Link to={`/snacks/${snack.id}`}>✏️</Link>
+        <Link to={`/snacks/${snack.id}`}>🔍</Link>
       </td>
+      <td>
+      {snack.is_vegan ? (
+          <span>👍🏽</span>
+        ) : (
+          <span>&nbsp; &nbsp; &nbsp;</span>
+        )}
+      </td>
+      <td>
+      {snack.is_halal ? (
+
+          <span>👍🏽</span>
+        ) : (
+          <span>&nbsp; &nbsp; &nbsp;</span>
+        )}
+      </td>
+
+
     </tr>
   );
 }
