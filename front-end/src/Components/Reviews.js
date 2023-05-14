@@ -36,7 +36,7 @@ function Reviews() {
     axios
       .delete(`${API}/snacks/${id}/reviews/${reviewid}`)
       .then(
-        (response) => {
+        () => {
           const copyReviewArray = [...reviews];
           const indexDeletedReview = copyReviewArray.findIndex((review) => {
             return review.id === reviewid;
@@ -90,10 +90,9 @@ function Reviews() {
           <div className="col text-center">No reviews available</div>
         )}
       </div>
-      <ReviewForm  handleEdit={handleEdit} />
+      <ReviewForm />
     </section>
   );
-
 }
 
 export default Reviews;

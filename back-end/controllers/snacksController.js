@@ -21,7 +21,7 @@ snacks.get("/", async (req, res) => {
   const allSnacks = await getAllSnacks();
 
   if (allSnacks) {
-    console.log(allSnacks);
+    // console.log(allSnacks);
     res.status(200).json(allSnacks);
   } else {
     res.status(404).json({ error: "server error" });
@@ -34,9 +34,9 @@ snacks.get("/:id", async (req, res) => {
   const snack = await getASnack(id);
 console.log("show route sucessfully reached")
   if (snack) {
-    console.log(snack);
+    // console.log(snack);
     res.status(200).json(snack);
-    console.log(snack)
+    // console.log(snack)
   } else {
     res.status(404).json({ error: "not found" });
   }
