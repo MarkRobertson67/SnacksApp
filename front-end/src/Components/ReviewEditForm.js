@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 const API = process.env.REACT_APP_API_URL;
@@ -15,9 +15,7 @@ function ReviewEditForm(props) {
     reviewer: "",
     title: "",
     content: "",
-    rating: "",
     snack_id: id,
-    is_favorite: false,
   })
 
   const handleTextChange = (event) => {
@@ -34,25 +32,11 @@ setReview({...review, [event.target.id]: event.target.value})
     event.preventDefault();
     handleEdit(review, id);
     window.location.reload(false);
-    if (reviewDetails) {
-      props.toggleView()
-    }
+    // if (reviewDetails) {
+    //   props.toggleView()
+    // }
   }
 
-  const [snack, setSnack] = useState({
-    name: "",
-    category: "",
-    rating: "",
-    calories: "",
-    is_vegan: false,
-    is_halal: false,
-    is_favorite: false,
-  });
-
-  const handleCheckboxChange = (event) => {
-    console.log(event.target.id)
-    setSnack({ ...snack, [event.target.id]: !snack[event.target.id] });
-  };
 
   const handleEdit = (updatedReview) => {
     axios
@@ -69,15 +53,12 @@ console.log("handle edit", response.data)
       .catch((c) => console.warn("catch", c));
   };
 
-
   const handleNevermind = () => {
     setReview({
       reviewer: "",
       title: "",
       content: "",
-      rating: "",
       snack_id: id,
-      is_favorite: false,
     });
   };
 
@@ -85,7 +66,7 @@ console.log("handle edit", response.data)
   return (
     <div className="container my-5">
       <h3>Edit Review</h3>
-      <div className="row justify-content-center"> {/* Center the row */}
+      <div className="row justify-content-center"> 
         <div className="col-md-6">
           <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -113,21 +94,6 @@ console.log("handle edit", response.data)
               />
             </div>
             <div className="form-group">
-              <label htmlFor="rating">Rating:</label>
-              <input
-                id="rating"
-                className="form-control"
-                placeholder="Zero to 5"
-                type="number"
-                name="rating"
-                min="0"
-                max="5"
-                step="1"
-                value={review.rating}
-                onChange={handleTextChange}
-              />
-            </div>
-            <div className="form-group">
               <label htmlFor="content">Review:</label>
               <textarea
                 id="content"
@@ -139,18 +105,6 @@ console.log("handle edit", response.data)
                 onChange={handleTextChange}
                 rows="1"
               />
-            </div>
-            <div className="form-group d-flex align-items-center">
-              <input
-                id="is_favorite"
-                className="form-check-input"
-                type="checkbox"
-                onChange={handleCheckboxChange}
-                checked={snack.is_favorite}
-              />
-              <label htmlFor="is_favorite" className="form-check-label">
-              is this your favorite?
-              </label>
             </div>
 
 
