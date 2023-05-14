@@ -20,17 +20,17 @@ function Reviews() {
       .catch((e) => console.log(e));
   }, [id]);
 
-  const handleAdd = (newReview) => {
-    axios
-      .post(`${API}/snacks/${id}/reviews`, newReview)
-      .then(
-        (response) => {
-          setReviews([response.data, ...reviews]);
-        },
-        (error) => console.error(error)
-      )
-      .catch((e) => console.warn("catch", e));
-  };
+  // const handleAdd = (newReview) => {
+  //   axios
+  //     .post(`${API}/snacks/${id}/reviews`, newReview)
+  //     .then(
+  //       (response) => {
+  //         setReviews([response.data, ...reviews]);
+  //       },
+  //       (error) => console.error(error)
+  //     )
+  //     .catch((e) => console.warn("catch", e));
+  // };
 
   const handleDelete = (reviewid) => {
     axios
@@ -44,7 +44,6 @@ function Reviews() {
           copyReviewArray.splice(indexDeletedReview, 1);
           setReviews(copyReviewArray);
         },
-      
       )
       .catch((c) => console.warn("catch", c));
   };
@@ -91,10 +90,12 @@ function Reviews() {
           <div className="col text-center">No reviews available</div>
         )}
       </div>
-      <ReviewForm handleAdd={handleAdd} handleEdit={handleEdit} />
+      <ReviewForm  handleEdit={handleEdit} />
     </section>
   );
 
 }
 
 export default Reviews;
+
+// handleAdd={handleAdd}
