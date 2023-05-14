@@ -2,9 +2,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function ReviewForm(props) {
+function ReviewForm({ handleAdd, toggleView , reviewDetails, props }) {
   const { id } = useParams();
-  const { reviewDetails } = props;
+  // const { reviewDetails } = props;
 
   const [review, setReview] = useState({
     reviewer: "",
@@ -23,14 +23,14 @@ setReview({...review, [event.target.id]: event.target.value})
     if (reviewDetails) {
       setReview(reviewDetails)
     }
-  }, [id, reviewDetails ])
+  }, [id, reviewDetails])
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleAdd(review, id);
+     handleAdd(review, id);
     
     if (reviewDetails) {
-      props.toggleView()
+     toggleView()
     }
     setReview({
       reviewer: "",

@@ -21,6 +21,7 @@ snacks.get("/", async (req, res) => {
   const allSnacks = await getAllSnacks();
 
   if (allSnacks) {
+    console.log(allSnacks);
     res.status(200).json(allSnacks);
   } else {
     res.status(404).json({ error: "server error" });
