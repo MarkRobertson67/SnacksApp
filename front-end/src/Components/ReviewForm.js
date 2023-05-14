@@ -1,11 +1,14 @@
-
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 
 function ReviewForm(props) {
   console.log(props)
   const { id } = useParams();
   const { reviewDetails } = props;
+
+  const API = process.env.REACT_APP_API_URL;
 
   const [review, setReview] = useState({
     reviewer: "",
@@ -57,6 +60,19 @@ setReview({...review, [event.target.id]: event.target.value})
     console.log(event.target.id)
     setSnack({ ...snack, [event.target.id]: !snack[event.target.id] });
   };
+
+const handleAdd = (newReview) => {
+    axios
+      .post(`${API}/snacks/${id}/reviews`, newReview)
+      .then(
+        (response) => {
+          setReviews([response.data, ...reviews]);
+        },
+        (error) => console.error(error)
+      )
+      .catch((e) => console.warn("catch", e));
+  };
+
 
   const handleNevermind = () => {
     setReview({

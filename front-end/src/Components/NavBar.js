@@ -6,7 +6,7 @@ import HotPepper from "../assets/HotPepper.png";
 
 export default function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark" style={{ background: 'linear-gradient(to right, #e6e6e6, #333333)' }}>
+    <nav className="navbar navbar-expand-lg navbar-dark " style={{ background: 'linear-gradient(to right, #e6e6e6, #333333)' }}>
       <div className="container-fluid">
         <Link className="navbar-brand" to="/snacks">
           <img src={PigAlot} alt="Snacks" className="rounded-circle pigalot" width="125" height="125" />
