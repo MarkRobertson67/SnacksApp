@@ -51,7 +51,16 @@ function SnackNewForm() {
   
   return (
     <div className="container my-5">
-      <h1>Add a new Snack</h1>
+      <h1 className="text-center"
+        style={{
+          textAlign: "center",
+          fontFamily: "Comic Sans MS, cursive",
+          background: 'linear-gradient(to right, blue, red)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
+        Add a New Snack</h1>
       <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-md-6">
