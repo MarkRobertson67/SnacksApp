@@ -2,10 +2,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function ReviewForm({ toggleView , reviewDetails, props }) {
+
+function ReviewForm(props) {
+  console.log(props)
   const { id } = useParams();
-  const [reviews, setReviews] = useState([]);
-  // const { reviewDetails } = props;
+  const { reviewDetails } = props;
 
   const API = process.env.REACT_APP_API_URL;
 
@@ -26,14 +27,14 @@ setReview({...review, [event.target.id]: event.target.value})
     if (reviewDetails) {
       setReview(reviewDetails)
     }
-  }, [id, reviewDetails])
+  }, [id, reviewDetails, props ])
 
   const handleSubmit = (event) => {
     event.preventDefault();
-     handleAdd(review, id);
+    props.handleAdd(review, id);
     
     if (reviewDetails) {
-     toggleView()
+      props.toggleView()
     }
     setReview({
       reviewer: "",
@@ -152,9 +153,40 @@ const handleAdd = (newReview) => {
                 checked={snack.is_favorite}
               />
               <label htmlFor="is_favorite" className="form-check-label">
-                Favorite
+              is this your favorite?
               </label>
             </div>
+
+            <div className="form-group d-flex align-items-center">
+              <input
+                id="is_vegan"
+                className="form-check-input"
+                type="checkbox"
+                onChange={handleCheckboxChange}
+                checked={snack.is_vegan}
+              />
+              <label htmlFor="is_vegan" className="form-check-label">
+                is this vegan?
+              </label>
+            </div>
+
+            <div className="form-group d-flex align-items-center">
+              <input
+                id="is_vegan"
+                className="form-check-input"
+                type="checkbox"
+                onChange={handleCheckboxChange}
+                checked={snack.is_halal}
+              />
+              <label htmlFor="is_halal" className="form-check-label">
+                is this halal?
+              </label>
+            </div>
+
+            
+
+
+
             <div className="d-flex justify-content-start"> {/* Updated the alignment */}
               <button type="submit" className="btn btn-primary btn-sm">
                 Submit
