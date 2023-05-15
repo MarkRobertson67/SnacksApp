@@ -12,7 +12,7 @@ const cn = DATABASE_URL ? {
     port: process.env.PG_PORT,
     database: process.env.PG_DATABASE,
     user: process.env.PG_USER
-}
+};
 const db = pgp(cn); 
 
 module.exports = db;

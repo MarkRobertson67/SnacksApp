@@ -48,20 +48,20 @@ function Reviews() {
       .catch((c) => console.warn("catch", c));
   };
 
-  const handleEdit = (updatedReview) => {
-    axios
-      .put(`${API}/snacks/${id}/reviews/${updatedReview.id}`, updatedReview)
-      .then((response) => {
-        const copyReviewArray = [...reviews];
-        const indexUpdatedReview = copyReviewArray.findIndex((review) => {
-          return review.id === updatedReview.id;
-        });
-        copyReviewArray[indexUpdatedReview] = response.data;
+  // const handleEdit = (updatedReview) => {
+  //   axios
+  //     .put(`${API}/snacks/${id}/reviews/${updatedReview.id}`, updatedReview)
+  //     .then((response) => {
+  //       const copyReviewArray = [...reviews];
+  //       const indexUpdatedReview = copyReviewArray.findIndex((review) => {
+  //         return review.id === updatedReview.id;
+  //       });
+  //       copyReviewArray[indexUpdatedReview] = response.data;
 
-        setReviews(copyReviewArray);
-      })
-      .catch((c) => console.warn("catch", c));
-  };
+  //       setReviews(copyReviewArray);
+  //     })
+  //     .catch((c) => console.warn("catch", c));
+  // };
 
   console.log(reviews);
 
