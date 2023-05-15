@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 const API = process.env.REACT_APP_API_URL;
@@ -52,9 +52,9 @@ setReview({...review, [event.target.id]: event.target.value})
       .catch((c) => console.warn("catch", c));
   };
 
-  const handleNevermind = () => {
-    return !props.toggleView()
-  };
+  // const handleNevermind = () => {
+  //   return !props.toggleView()
+  // };
 
 
   return (
@@ -106,13 +106,16 @@ setReview({...review, [event.target.id]: event.target.value})
               <button type="submit" className="btn btn-primary btn-sm">
                 Submit
               </button>
-              <button
+              <Link to={`/snacks`} className="btn btn-secondary ml-2">
+          Nevermind!
+        </Link>
+              {/* <button
                 type="button"
                 className="btn btn-secondary ml-2 btn-sm"
                 onClick={handleNevermind}
               >
                 Nevermind
-              </button>
+              </button> */}
             </div>
           </form>
         </div>

@@ -19,6 +19,8 @@ function SnackNewForm() {
     is_favorite: false,
   });
 
+
+  
   const addSnack = (newSnack) => {
     axios
       .post(`${API}/snacks`, newSnack)

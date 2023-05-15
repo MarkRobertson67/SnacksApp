@@ -2,7 +2,12 @@ const pgp = require("pg-promise")();
 
 require('dotenv').config();
 
-const cn = {
+DATABASE_URL = process.env.DATABSE_URL
+
+const cn = DATABASE_URL ? {
+    connectionString: DATABASE_URL,
+    max:30
+} : {
     host: process.env.PG_HOST,
     port: process.env.PG_PORT,
     database: process.env.PG_DATABASE,
@@ -11,3 +16,4 @@ const cn = {
 const db = pgp(cn); 
 
 module.exports = db;
+

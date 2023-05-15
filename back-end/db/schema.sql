@@ -8,6 +8,7 @@ CREATE DATABASE snacks;
 \c snacks;
 
 -- Create a table for our songs
+DROP TABLE IF EXISTS test;
 
 CREATE TABLE snack (   
     id SERIAL PRIMARY KEY,   
@@ -19,7 +20,6 @@ CREATE TABLE snack (
     is_vegan BOOLEAN DEFAULT false,
     is_halal BOOLEAN DEFAULT false, 
     is_favorite BOOLEAN 
-
 );
 
 CREATE TABLE review (
