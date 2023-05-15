@@ -79,13 +79,9 @@ function SnackDetails() {
     <p>Calories: {snack.calories}</p>
     <p>{snack.is_vegan}</p>
     <p>{snack.is_halal}</p>
-    {snack.photo && (
-  <img
-    src={`${snack.photo}`}
-    alt={snack.name}
-    style={{ width: "200px", height: "200px" }}
-  />
-)}
+    <div className="snack-image">
+      <img src={snack.image} alt={snack.name} />
+    </div>
 
     <div className="row text-center">
       <div className="col-md-4 mx-auto">

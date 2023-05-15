@@ -19,7 +19,8 @@ CREATE TABLE snack (
     calories INTEGER NOT NULL,   
     is_vegan BOOLEAN DEFAULT false,
     is_halal BOOLEAN DEFAULT false, 
-    is_favorite BOOLEAN 
+    is_favorite BOOLEAN ,
+    image TEXT
 );
 
 CREATE TABLE review (
