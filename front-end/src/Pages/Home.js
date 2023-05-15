@@ -6,7 +6,7 @@ function Home() {
         <h2>Welcome</h2>
       </div>
       <div>
-        <h3>To the PigOut Snacks App</h3>
+        <h3>To the Pig A Lot Snacks App</h3>
       </div>
     </div>
     );
