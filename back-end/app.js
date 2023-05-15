@@ -13,7 +13,7 @@ app.use("/snacks", snacksRoutes);
 
 
 app.get("/", (req, res) => {
-    res.json({ hello: "Hello World!" });
+    res.json( {message: "Welcome to the Snack App Back-end"} );
     }
 );
 
