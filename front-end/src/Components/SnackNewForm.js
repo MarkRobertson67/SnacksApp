@@ -25,8 +25,8 @@ function SnackNewForm() {
     axios
       .post(`${API}/snacks`, newSnack)
       .then(
-        () => {
-          navigate(`/snacks/:{id}`);
+        (response) => {
+          navigate(`/snacks/${response.data.id}`);
         },
         (error) => console.error(error)
       )

@@ -33,6 +33,7 @@ setReview({...review, [event.target.id]: event.target.value})
   const handleSubmit = (event) => {
     event.preventDefault();
     handleAdd(review, id);
+    window.location.reload(false)
     
     if (reviewDetails) {
       props.toggleView()
@@ -58,7 +59,7 @@ setReview({...review, [event.target.id]: event.target.value})
   });
 
   const handleCheckboxChange = (event) => {
-    console.log(event.target.id)
+    // console.log(event.target.id)
     setSnack({ ...snack, [event.target.id]: !snack[event.target.id] });
   };
 
