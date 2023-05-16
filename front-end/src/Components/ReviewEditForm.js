@@ -32,9 +32,6 @@ setReview({...review, [event.target.id]: event.target.value})
     event.preventDefault();
     handleEdit(review, id);
     window.location.reload(false);
-    // if (reviewDetails) {
-    //   props.toggleView()
-    // }
   }
 
 
@@ -52,9 +49,9 @@ setReview({...review, [event.target.id]: event.target.value})
       .catch((c) => console.warn("catch", c));
   };
 
-  // const handleNevermind = () => {
-  //   return !props.toggleView()
-  // };
+  const handleNevermind = () => {
+    return !props.toggleView()
+  };
 
 
   return (
@@ -106,16 +103,14 @@ setReview({...review, [event.target.id]: event.target.value})
               <button type="submit" className="btn btn-primary btn-sm">
                 Submit
               </button>
-              <Link to={`/snacks`} className="btn btn-secondary ml-2">
-          Nevermind!
-        </Link>
-              {/* <button
+              
+              <button
                 type="button"
                 className="btn btn-secondary ml-2 btn-sm"
                 onClick={handleNevermind}
               >
                 Nevermind
-              </button> */}
+              </button>
             </div>
           </form>
         </div>
