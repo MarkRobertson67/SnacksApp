@@ -18,6 +18,8 @@ export default function NavBar() {
           </h2>
           <img src={HotPepper} alt="Pepper" className="Pepper" width="75" height="75" />
         </div>
+
+        
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">

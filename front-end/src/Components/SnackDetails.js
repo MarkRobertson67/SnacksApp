@@ -80,7 +80,7 @@ function SnackDetails() {
     <p>{snack.is_vegan}</p>
     <p>{snack.is_halal}</p>
     <div className="snack-image">
-      <img src={snack.image} alt={snack.name} />
+      <img src={snack.image} alt={snack.name} width={"700"} height={"500"}/>
     </div>
 
     <div className="row text-center">
