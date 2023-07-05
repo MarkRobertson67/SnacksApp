@@ -1,3 +1,7 @@
+
+<a href="https://snacksapp.netlify.app" target="_blank">Click here - Snacks App</a>
+
+
 # SnacksApp
 ![PIG logo](front-end/src/assets/PigAlot.png)
 
